@@ -66,6 +66,7 @@
       <!-- 表格区域 -->
       <a-table ref="TableInfo"
                :columns="columns"
+               :rowKey="record => record.jobId"
                :dataSource="dataSource"
                :pagination="pagination"
                :loading="loading"

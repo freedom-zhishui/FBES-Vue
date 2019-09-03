@@ -45,6 +45,7 @@
       <!-- 表格区域 -->
       <a-table ref="TableInfo"
                :columns="columns"
+               :rowKey="record => record.roleId"
                :dataSource="dataSource"
                :pagination="pagination"
                :loading="loading"
