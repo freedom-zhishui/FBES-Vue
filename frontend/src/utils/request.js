@@ -30,6 +30,8 @@ FEBS_REQUEST.interceptors.request.use((config) => {
         return new Promise((resolve, reject) => {
           db.clear()
           location.reload()
+        }).catch(function (reason) {
+          console.log('catch:', reason)
         })
       }
     })
