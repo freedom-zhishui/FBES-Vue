@@ -37,6 +37,7 @@ export default {
               enabled: true,
               easing: 'linear',
               dynamicAnimation: {
+                enabled: true,
                 speed: 3000
               }
             },
@@ -51,6 +52,7 @@ export default {
             enabled: false
           },
           stroke: {
+            show: true,
             curve: 'smooth'
           },
           title: {
@@ -78,6 +80,7 @@ export default {
               enabled: true,
               easing: 'linear',
               dynamicAnimation: {
+                show: true,
                 speed: 3000
               }
             },
@@ -93,6 +96,7 @@ export default {
           },
           colors: ['#f5564e'],
           stroke: {
+            show: true,
             curve: 'smooth'
           },
           title: {
