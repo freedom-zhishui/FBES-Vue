@@ -78,6 +78,17 @@ febs:
         num: 1000
   shiro:
     # 后端免认证接口 url
-    anonUrl: /login,/logout/**,/regist,/user/check/**
+    anonUrl: /login,/logout/**,/regist,/user/check/**,/swagger-resources/**,/webjars/**,/v2/**,/swagger-ui.html/**,/favicon.ico
     # token有效期，单位秒
     jwtTimeOut: 3600
+  # Swagger相关配置
+  swagger:
+    basePackage: cc.mrbird.febs
+    title: FEBS VUE API
+    description: FEBS VUE API Document.
+    version: 2.0
+    author: MrBird
+    url: https://mrbird.cc
+    email: 852252810@qq.com
+    license: Apache 2.0
+    licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html

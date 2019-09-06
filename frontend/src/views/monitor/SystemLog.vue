@@ -63,6 +63,7 @@
       <!-- 表格区域 -->
       <a-table ref="TableInfo"
                :columns="columns"
+               :rowKey="record => record.id"
                :dataSource="dataSource"
                :pagination="pagination"
                :loading="loading"
