@@ -288,9 +288,8 @@ export default {
         centered: true,
         onOk () {
           let userIds = []
-          for (let key of that.selectedRowKeys) {
-            userIds.push(that.dataSource[key].userId)
-          }
+          let selectedRowKeysStr = ',' + that.selectedRowKeys.join(',') + ','
+          userIds.push(that.dataSource.filter(f => { return selectedRowKeysStr.indexOf(',' + f.userId + ',') > -1 }).map(m => { return m.userId }))
           that.$delete('user/' + userIds.join(',')).then(() => {
             that.$message.success('删除成功')
             that.selectedRowKeys = []
@@ -314,9 +313,8 @@ export default {
         centered: true,
         onOk () {
           let usernames = []
-          for (let key of that.selectedRowKeys) {
-            usernames.push(that.dataSource[key].username)
-          }
+          let selectedRowKeysStr = ',' + that.selectedRowKeys.join(',') + ','
+          usernames.push(that.dataSource.filter(f => { return selectedRowKeysStr.indexOf(',' + f.userId + ',') > -1 }).map(m => { return m.username }))
           that.$put('user/password/reset', {
             usernames: usernames.join(',')
           }).then(() => {
