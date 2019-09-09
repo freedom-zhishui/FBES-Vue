@@ -10,16 +10,14 @@
     style="height: calc(100% - 55px);overflow: auto;padding-bottom: 53px;">
     <a-form :form="form">
       <a-form-item label='按钮名称' v-bind="formItemLayout">
-        <a-input v-model="button.menuName"
-                 v-decorator="['menuName',
+        <a-input v-decorator="['menuName',
                    {rules: [
                     { required: true, message: '按钮名称不能为空'},
                     { max: 10, message: '长度不能超过10个字符'}
                   ]}]"/>
       </a-form-item>
       <a-form-item label='相关权限' v-bind="formItemLayout">
-        <a-input v-model="button.perms"
-                 v-decorator="['perms',
+        <a-input v-decorator="['perms',
                    {rules: [
                     { max: 50, message: '长度不能超过50个字符'}
                   ]}]"/>
@@ -115,6 +113,7 @@ export default {
       }
       this.form.validateFields((err, values) => {
         if (!err) {
+          this.setButtonFields()
           this.loading = true
           if (checkedArr.length) {
             this.button.parentId = checkedArr[0]
@@ -133,6 +132,12 @@ export default {
           })
         }
       })
+    },
+    setButtonFields () {
+      let values = this.form.getFieldsValue(['menuName', 'perms'])
+      if (typeof values !== 'undefined') {
+        Object.keys(values).forEach(_key => { this.button[_key] = values[_key] })
+      }
     }
   },
   watch: {
