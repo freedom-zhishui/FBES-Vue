@@ -10,8 +10,7 @@
     style="height: calc(100% - 55px);overflow: auto;padding-bottom: 53px;">
     <a-form :form="form">
       <a-form-item label='部门名称' v-bind="formItemLayout">
-        <a-input v-model="dept.deptName"
-                 v-decorator="['deptName',
+        <a-input v-decorator="['deptName',
                    {rules: [
                     { required: true, message: '部门名称不能为空'},
                     { max: 20, message: '长度不能超过20个字符'}
@@ -92,6 +91,7 @@ export default {
       }
       this.form.validateFields((err, values) => {
         if (!err) {
+          this.setDeptFields()
           this.loading = true
           if (checkedArr.length) {
             this.dept.parentId = checkedArr[0]
@@ -108,6 +108,12 @@ export default {
           })
         }
       })
+    },
+    setDeptFields () {
+      let values = this.form.getFieldsValue(['deptName'])
+      if (typeof values !== 'undefined') {
+        Object.keys(values).forEach(_key => { this.dept[_key] = values[_key] })
+      }
     }
   },
   watch: {
