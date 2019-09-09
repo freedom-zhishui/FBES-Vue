@@ -5,8 +5,10 @@ import cc.mrbird.febs.common.controller.BaseController;
 import cc.mrbird.febs.common.domain.QueryRequest;
 import cc.mrbird.febs.common.exception.FebsException;
 import cc.mrbird.febs.common.utils.MD5Util;
+import cc.mrbird.febs.system.domain.Role;
 import cc.mrbird.febs.system.domain.User;
 import cc.mrbird.febs.system.domain.UserConfig;
+import cc.mrbird.febs.system.service.RoleService;
 import cc.mrbird.febs.system.service.UserConfigService;
 import cc.mrbird.febs.system.service.UserService;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -23,6 +25,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Validated
@@ -36,6 +39,8 @@ public class UserController extends BaseController {
     private UserService userService;
     @Autowired
     private UserConfigService userConfigService;
+    @Autowired
+    private RoleService roleService;
 
     @GetMapping("check/{username}")
     public boolean checkUserName(@NotBlank(message = "{required}") @PathVariable String username) {
@@ -44,7 +49,13 @@ public class UserController extends BaseController {
 
     @GetMapping("/{username}")
     public User detail(@NotBlank(message = "{required}") @PathVariable String username) {
-        return this.userService.findByName(username);
+        User user=this.userService.findByName(username);
+        //修复用户修改自己的个人信息第二次提示roleId不能为空
+        List<Role> roles=roleService.findUserRole(username);
+        List<Long> roleIds=roles.stream().map(role ->role.getRoleId()).collect(Collectors.toList());
+        String roleIdStr=StringUtils.join(roleIds.toArray(new Long[roleIds.size()]),",");
+        user.setRoleId(roleIdStr);
+        return user;
     }
 
     @GetMapping
