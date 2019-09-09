@@ -11,31 +11,27 @@
     <a-form :form="form">
       <a-form-item label='键' v-bind="formItemLayout">
         <a-input-number style="width: 100%"
-                 v-model="dict.keyy"
                  v-decorator="['keyy',
                    {rules: [
                     { required: true, message: '不能为空'}
                   ]}]"/>
       </a-form-item>
       <a-form-item label='值' v-bind="formItemLayout">
-        <a-input v-model="dict.valuee"
-                 v-decorator="['valuee',
+        <a-input v-decorator="['valuee',
                    {rules: [
                     { required: true, message: '不能为空'},
                     { max: 20, message: '长度不能超过20个字符'}
                   ]}]"/>
       </a-form-item>
       <a-form-item label='表名' v-bind="formItemLayout">
-        <a-input v-model="dict.tableName"
-                 v-decorator="['tableName',
+        <a-input v-decorator="['tableName',
                    {rules: [
                     { required: true, message: '不能为空'},
                     { max: 20, message: '长度不能超过20个字符'}
                   ]}]"/>
       </a-form-item>
       <a-form-item label='字段' v-bind="formItemLayout">
-        <a-input v-model="dict.fieldName"
-                 v-decorator="['fieldName',
+        <a-input v-decorator="['fieldName',
                    {rules: [
                     { required: true, message: '不能为空'},
                     { max: 20, message: '长度不能超过20个字符'}
@@ -83,6 +79,7 @@ export default {
     handleSubmit () {
       this.form.validateFields((err, values) => {
         if (!err) {
+          this.setDictFields()
           this.$post('dict', {
             ...this.dict
           }).then(() => {
@@ -93,6 +90,12 @@ export default {
           })
         }
       })
+    },
+    setDictFields () {
+      let values = this.form.getFieldsValue(['keyy', 'valuee', 'tableName', 'fieldName'])
+      if (typeof values !== 'undefined') {
+        Object.keys(values).forEach(_key => { this.dict[_key] = values[_key] })
+      }
     }
   }
 }

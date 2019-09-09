@@ -200,11 +200,8 @@ export default {
         content: '当您点击确定按钮后，这些记录将会被彻底删除',
         centered: true,
         onOk () {
-          let dictIds = []
-          for (let key of that.selectedRowKeys) {
-            dictIds.push(that.dataSource[key].dictId)
-          }
-          that.$delete('dict/' + dictIds.join(',')).then(() => {
+          let dictIds = that.selectedRowKeys.join(',')
+          that.$delete('dict/' + dictIds).then(() => {
             that.$message.success('删除成功')
             that.selectedRowKeys = []
             that.search()
@@ -258,6 +255,7 @@ export default {
         params.pageSize = this.pagination.defaultPageSize
         params.pageNum = this.pagination.defaultCurrent
       }
+      console.log(params)
       this.$get('dict', {
         ...params
       }).then((r) => {
