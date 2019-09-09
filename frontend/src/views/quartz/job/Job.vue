@@ -295,11 +295,8 @@ export default {
         content: '当您点击确定按钮后，这些记录将会被彻底删除',
         centered: true,
         onOk () {
-          let jobIds = []
-          for (let key of that.selectedRowKeys) {
-            jobIds.push(that.dataSource[key].jobId)
-          }
-          that.$delete('job/' + jobIds.join(',')).then(() => {
+          let jobIds = that.selectedRowKeys.join(',')
+          that.$delete('job/' + jobIds).then(() => {
             that.$message.success('删除成功')
             that.selectedRowKeys = []
             that.search()
