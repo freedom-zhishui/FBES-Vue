@@ -774,69 +774,71 @@ INSERT INTO `t_role_menu` VALUES ('2', '131');
 -- ----------------------------
 DROP TABLE IF EXISTS `t_test`;
 CREATE TABLE `t_test` (
+  `ID` bigint(11) NOT NULL AUTO_INCREMENT,
   `FIELD1` varchar(20) NOT NULL,
   `FIELD2` int(11) NOT NULL,
   `FIELD3` varchar(100) NOT NULL,
-  `CREATE_TIME` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `CREATE_TIME` datetime NOT NULL,
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT = 100 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_test
 -- ----------------------------
-INSERT INTO `t_test` VALUES ('字段1', '1', 'mrbird@gmail.com', '2019-01-22 16:26:51');
-INSERT INTO `t_test` VALUES ('字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:01:03');
-INSERT INTO `t_test` VALUES ('字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:01:03');
-INSERT INTO `t_test` VALUES ('字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:01:03');
-INSERT INTO `t_test` VALUES ('字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:01:03');
-INSERT INTO `t_test` VALUES ('字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:01:03');
-INSERT INTO `t_test` VALUES ('字段1', '10', 'mrbird9@gmail.com', '2019-01-23 03:01:03');
-INSERT INTO `t_test` VALUES ('字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:03:49');
-INSERT INTO `t_test` VALUES ('字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:03:49');
-INSERT INTO `t_test` VALUES ('字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:03:49');
-INSERT INTO `t_test` VALUES ('字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:03:49');
-INSERT INTO `t_test` VALUES ('字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:03:49');
-INSERT INTO `t_test` VALUES ('字段1', '10', 'mrbird9@gmail.com', '2019-01-23 03:03:49');
-INSERT INTO `t_test` VALUES ('字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:07:47');
-INSERT INTO `t_test` VALUES ('字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:07:47');
-INSERT INTO `t_test` VALUES ('字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:07:47');
-INSERT INTO `t_test` VALUES ('字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:07:47');
-INSERT INTO `t_test` VALUES ('字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:07:47');
-INSERT INTO `t_test` VALUES ('字段1', '6', 'mrbird5@gmail.com', '2019-01-23 03:07:47');
-INSERT INTO `t_test` VALUES ('字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:08:09');
-INSERT INTO `t_test` VALUES ('字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:08:09');
-INSERT INTO `t_test` VALUES ('字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:08:09');
-INSERT INTO `t_test` VALUES ('字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:08:09');
-INSERT INTO `t_test` VALUES ('字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:08:09');
-INSERT INTO `t_test` VALUES ('字段1', '10', 'mrbird9@gmail.com', '2019-01-23 03:08:09');
-INSERT INTO `t_test` VALUES ('字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:19:52');
-INSERT INTO `t_test` VALUES ('字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:19:52');
-INSERT INTO `t_test` VALUES ('字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:19:52');
-INSERT INTO `t_test` VALUES ('字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:19:52');
-INSERT INTO `t_test` VALUES ('字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:19:52');
-INSERT INTO `t_test` VALUES ('字段1', '6', 'mrbird5@gmail.com', '2019-01-23 03:19:52');
-INSERT INTO `t_test` VALUES ('字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:20:56');
-INSERT INTO `t_test` VALUES ('字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:20:56');
-INSERT INTO `t_test` VALUES ('字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:20:56');
-INSERT INTO `t_test` VALUES ('字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:20:56');
-INSERT INTO `t_test` VALUES ('字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:20:56');
-INSERT INTO `t_test` VALUES ('字段1', '6', 'mrbird5@gmail.com', '2019-01-23 03:20:56');
-INSERT INTO `t_test` VALUES ('字段1', '1', 'mrbird0@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '2', 'mrbird1@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '3', 'mrbird2@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '4', 'mrbird3@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '5', 'mrbird4@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '6', 'mrbird5@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '7', 'mrbird6@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '8', 'mrbird7@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '9', 'mrbird8@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '11', 'mrbird10@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '12', 'mrbird11@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '14', 'mrbird13@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '15', 'mrbird14@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '16', 'mrbird15@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '18', 'mrbird17@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '19', 'mrbird18@gmail.com', '2019-01-23 06:12:38');
-INSERT INTO `t_test` VALUES ('字段1', '20', 'mrbird19@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (1,'字段1', '1', 'mrbird@gmail.com', '2019-01-22 16:26:51');
+INSERT INTO `t_test` VALUES (2,'字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:01:03');
+INSERT INTO `t_test` VALUES (3,'字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:01:03');
+INSERT INTO `t_test` VALUES (4,'字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:01:03');
+INSERT INTO `t_test` VALUES (5,'字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:01:03');
+INSERT INTO `t_test` VALUES (6,'字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:01:03');
+INSERT INTO `t_test` VALUES (7,'字段1', '10', 'mrbird9@gmail.com', '2019-01-23 03:01:03');
+INSERT INTO `t_test` VALUES (8,'字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:03:49');
+INSERT INTO `t_test` VALUES (9,'字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:03:49');
+INSERT INTO `t_test` VALUES (10,'字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:03:49');
+INSERT INTO `t_test` VALUES (11,'字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:03:49');
+INSERT INTO `t_test` VALUES (12,'字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:03:49');
+INSERT INTO `t_test` VALUES (13,'字段1', '10', 'mrbird9@gmail.com', '2019-01-23 03:03:49');
+INSERT INTO `t_test` VALUES (14,'字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:07:47');
+INSERT INTO `t_test` VALUES (15,'字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:07:47');
+INSERT INTO `t_test` VALUES (16,'字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:07:47');
+INSERT INTO `t_test` VALUES (17,'字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:07:47');
+INSERT INTO `t_test` VALUES (18,'字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:07:47');
+INSERT INTO `t_test` VALUES (19,'字段1', '6', 'mrbird5@gmail.com', '2019-01-23 03:07:47');
+INSERT INTO `t_test` VALUES (20,'字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:08:09');
+INSERT INTO `t_test` VALUES (21,'字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:08:09');
+INSERT INTO `t_test` VALUES (22,'字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:08:09');
+INSERT INTO `t_test` VALUES (23,'字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:08:09');
+INSERT INTO `t_test` VALUES (24,'字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:08:09');
+INSERT INTO `t_test` VALUES (25,'字段1', '10', 'mrbird9@gmail.com', '2019-01-23 03:08:09');
+INSERT INTO `t_test` VALUES (26,'字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:19:52');
+INSERT INTO `t_test` VALUES (27,'字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:19:52');
+INSERT INTO `t_test` VALUES (28,'字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:19:52');
+INSERT INTO `t_test` VALUES (29,'字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:19:52');
+INSERT INTO `t_test` VALUES (30,'字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:19:52');
+INSERT INTO `t_test` VALUES (31,'字段1', '6', 'mrbird5@gmail.com', '2019-01-23 03:19:52');
+INSERT INTO `t_test` VALUES (32,'字段1', '1', 'mrbird0@gmail.com', '2019-01-23 03:20:56');
+INSERT INTO `t_test` VALUES (33,'字段1', '2', 'mrbird1@gmail.com', '2019-01-23 03:20:56');
+INSERT INTO `t_test` VALUES (34,'字段1', '3', 'mrbird2@gmail.com', '2019-01-23 03:20:56');
+INSERT INTO `t_test` VALUES (35,'字段1', '4', 'mrbird3@gmail.com', '2019-01-23 03:20:56');
+INSERT INTO `t_test` VALUES (36,'字段1', '5', 'mrbird4@gmail.com', '2019-01-23 03:20:56');
+INSERT INTO `t_test` VALUES (37,'字段1', '6', 'mrbird5@gmail.com', '2019-01-23 03:20:56');
+INSERT INTO `t_test` VALUES (38,'字段1', '1', 'mrbird0@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (39,'字段1', '2', 'mrbird1@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (40,'字段1', '3', 'mrbird2@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (41,'字段1', '4', 'mrbird3@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (42,'字段1', '5', 'mrbird4@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (43,'字段1', '6', 'mrbird5@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (44,'字段1', '7', 'mrbird6@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (45,'字段1', '8', 'mrbird7@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (46,'字段1', '9', 'mrbird8@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (47,'字段1', '11', 'mrbird10@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (48,'字段1', '12', 'mrbird11@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (49,'字段1', '14', 'mrbird13@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (50,'字段1', '15', 'mrbird14@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (51,'字段1', '16', 'mrbird15@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (52,'字段1', '18', 'mrbird17@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (53,'字段1', '19', 'mrbird18@gmail.com', '2019-01-23 06:12:38');
+INSERT INTO `t_test` VALUES (54,'字段1', '20', 'mrbird19@gmail.com', '2019-01-23 06:12:38');
 
 -- ----------------------------
 -- Table structure for t_user
