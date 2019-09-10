@@ -29,6 +29,7 @@
     <a-card :bordered="false" class="card-area">
       <!-- 表格区域 -->
       <a-table ref="TableInfo"
+               :rowKey="record =>record.id"
                :columns="columns"
                :dataSource="dataSource"
                :pagination="pagination"

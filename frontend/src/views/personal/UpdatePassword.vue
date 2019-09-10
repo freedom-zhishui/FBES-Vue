@@ -15,7 +15,6 @@
         v-bind="formItemLayout">
         <a-input type="password"
                  autocomplete="false"
-                 v-model="oldPassword"
                  placeholder="请输入旧密码" v-decorator="['oldPassword',{rules: [{ required: true, message: '请输入旧密码'}, { validator: this.handleOldPassowrd }], validateTrigger: ['blur']}]"></a-input>
       </a-form-item>
       <a-popover placement="rightTop" trigger="click" :visible="state.passwordLevelChecked">
@@ -33,7 +32,6 @@
           v-bind="formItemLayout">
           <a-input type="password"
                    @click="handlePasswordInputClick"
-                   v-model="newPassword"
                    autocomplete="false"
                    placeholder="至少6位密码，区分大小写" v-decorator="['password',{rules: [{ required: true, message: '至少6位密码，区分大小写'}, { validator: this.handlePasswordLevel }], validateTrigger: ['change', 'blur']}]"></a-input>
         </a-form-item>
@@ -85,7 +83,7 @@ export default {
   },
   data () {
     return {
-      form: null,
+      // form: null,
       formItemLayout,
       state: {
         passwordLevel: 0,
@@ -93,8 +91,8 @@ export default {
         percent: 10,
         progressColor: '#FF0000'
       },
-      oldPassword: '',
-      newPassword: '',
+      // oldPassword: '',
+      // newPassword: '',
       validateStatus: '',
       help: ''
     }
@@ -129,8 +127,9 @@ export default {
     handleUpdatePassword () {
       this.form.validateFields((err, values) => {
         if (!err) {
+          let newPassword = this.form.getFieldValue('password')
           this.$put('user/password', {
-            password: this.newPassword,
+            password: newPassword,
             username: this.user.username
           }).then(() => {
             this.state.passwordLevelChecked = false
@@ -186,8 +185,8 @@ export default {
       this.state.passwordLevelChecked = false
     },
     handleOldPassowrd (rule, value, callback) {
-      let password = this.oldPassword
-      if (this.oldPassword.trim().length) {
+      let password = this.form.getFieldValue('oldPassword')
+      if (typeof password !== 'undefined' && password.trim().length) {
         this.$get('user/password/check', {
           password: password,
           username: this.user.username
